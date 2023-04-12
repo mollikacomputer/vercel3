@@ -22,7 +22,7 @@ const serviceDetails = ({ service }) => {
 export const getStaticProps = async (context) => {
   const { params } = context;
   const res = await fetch(
-    `https://vercel.com/api/services/${params?.serviceId}`
+    `/api/services/${params?.serviceId}`
   );
   const data = await res.json();
   return {
@@ -33,7 +33,7 @@ export const getStaticProps = async (context) => {
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch("https://vercel.com/api/services/");
+  const res = await fetch("/api/services/");
   const services = await res.json();
   const paths = services.map((service) => {
     return {
