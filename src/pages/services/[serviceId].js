@@ -2,17 +2,19 @@ import { useRouter } from "next/router";
 import React from "react";
 
 const serviceDetails = ({ service }) => {
-    const router = useRouter();
-    const handleBackToHome = () =>{
-        router.push('/services');
-    }
+  const router = useRouter();
+  const handleBackToHome = () => {
+    router.push("/services");
+  };
   return (
     <div className="card bg-base-100 shadow-xl my-10 mx-10">
       <div className="card-body">
         <h2 className="card-title"> {service.title} </h2>
         <p> {service.body} </p>
         <div className="card-actions justify-end">
-            <button onClick={handleBackToHome} className="btn btn-primary">Back to Post</button>
+          <button onClick={handleBackToHome} className="btn btn-primary">
+            Back to Post
+          </button>
         </div>
       </div>
     </div>
@@ -22,7 +24,7 @@ const serviceDetails = ({ service }) => {
 export const getStaticProps = async (context) => {
   const { params } = context;
   const res = await fetch(
-    `/api/services/${params?.serviceId}`
+    `${params?.serviceId}`
   );
   const data = await res.json();
   return {
@@ -33,7 +35,7 @@ export const getStaticProps = async (context) => {
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch("/api/services/");
+  const res = await fetch("api/services/");
   const services = await res.json();
   const paths = services.map((service) => {
     return {
