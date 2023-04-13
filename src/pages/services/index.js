@@ -32,7 +32,7 @@ const index = ({ services }) => {
 
 export const getStaticProps = async () => {
   const res = await fetch(
-    "api/services"
+    "/api/services"
   );
   const data = await res.json();
   return {
