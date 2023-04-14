@@ -24,7 +24,7 @@ const serviceDetails = ({ service }) => {
 export const getStaticProps = async (context) => {
   const { params } = context;
   const res = await fetch(
-    `vercel3-yjn74pol2-mollikacomputer.vercel.app/api/services/${params?.serviceId}`
+    `https://vercel3-yjn74pol2-mollikacomputer.vercel.app/api/services/${params?.serviceId}`
   );
   const data = await res.json();
   return {
@@ -35,7 +35,7 @@ export const getStaticProps = async (context) => {
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch("vercel3-yjn74pol2-mollikacomputer.vercel.app/api/services/");
+  const res = await fetch("https://vercel3-yjn74pol2-mollikacomputer.vercel.app/api/services/");
   const services = await res.json();
   const paths = services.map((service) => {
     return {
