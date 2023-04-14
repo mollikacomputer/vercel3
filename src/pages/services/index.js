@@ -32,7 +32,7 @@ const index = ({ services }) => {
 
 export const getStaticProps = async () => {
   const res = await fetch(
-    "http://localhost:3000/api/services"
+    "vercel3-yjn74pol2-mollikacomputer.vercel.app/api/services"
   );
   const data = await res.json();
   return {
